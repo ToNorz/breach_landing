@@ -1,7 +1,60 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import AxiosLogo from "./AxiosLogo";
+
+const TITLE_LETTERS = "BREACHPOINT".split("");
+const RANDOM_CHARS = ["0", "1", "4", "7", "A", "X", "#", "8", "9", "Z", "_"];
 
 export default function Hero() {
+  const [activeFlip, setActiveFlip] = useState(null);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    // Respect prefers-reduced-motion
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    let isMounted = true;
+
+    const scheduleNext = () => {
+      // Shorter pause between flips (~700ms - 1000ms) for a more active mechanical tick
+      const pauseDuration = 700 + Math.random() * 300;
+      timerRef.current = setTimeout(() => {
+        if (!isMounted) return;
+
+        // Select exactly one letter randomly
+        const index = Math.floor(Math.random() * TITLE_LETTERS.length);
+        const originalChar = TITLE_LETTERS[index];
+        const validRandoms = RANDOM_CHARS.filter((c) => c !== originalChar);
+        const randomChar = validRandoms[Math.floor(Math.random() * validRandoms.length)];
+
+        setActiveFlip({
+          index,
+          randomChar,
+          key: Date.now(),
+        });
+
+        // Fast flip completes in 360ms -> settle back to original letter, then schedule next
+        timerRef.current = setTimeout(() => {
+          if (!isMounted) return;
+          setActiveFlip(null);
+          scheduleNext();
+        }, 360);
+      }, pauseDuration);
+    };
+
+    // Initial settle before first flip
+    scheduleNext();
+
+    return () => {
+      isMounted = false;
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
+
   const scrollTo = (href) => {
     const el = document.querySelector(href);
     if (el) {
@@ -19,30 +72,49 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-5xl mx-auto px-6 pt-28 pb-24 flex flex-col items-center text-center">
-        {/* Terminal status badge */}
+        {/* Recreated AXIOS '26 Emblem & Wordmark (HTML/SVG, date omitted) */}
         <div
-          className="bp-rise bp-mono text-[11px] font-medium uppercase inline-flex items-center gap-2 px-3 py-1.5 rounded-sm mb-8"
-          style={{
-            animationDelay: "0.05s",
-            border: "1px solid var(--border-strong)",
-            color: "var(--green)",
-            background: "var(--green-soft)",
-          }}
+          className="bp-rise max-w-[135px] sm:max-w-[165px] md:max-w-[195px] w-full mb-6 mx-auto transition-transform duration-300 hover:scale-105"
+          style={{ animationDelay: "0.05s" }}
         >
-          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--green)" }} />
-          SYSTEM ONLINE // CHALLENGE INITIALIZED
-          <span className="bp-cursor">_</span>
+          <AxiosLogo />
         </div>
 
-        {/* Hero Title - Oxanium 800 */}
+        {/* Hero Title - Oxanium 800 with mechanical precision flip animation */}
         <h1
           className="bp-rise bp-display font-extrabold leading-[0.95] tracking-tight"
           style={{
             animationDelay: "0.15s",
             fontSize: "clamp(2.75rem, 8vw, 6.5rem)",
           }}
+          aria-label="BREACHPOINT"
         >
-          BREACHPOINT
+          {TITLE_LETTERS.map((letter, i) => {
+            const isFlipping = activeFlip && activeFlip.index === i;
+            return (
+              <span key={i} className="bp-flip-cell">
+                {/* Static/Ghost letter preserving exact title kerning, tracking, and footprint */}
+                <span
+                  className={isFlipping ? "invisible select-none" : ""}
+                  aria-hidden={isFlipping ? "true" : undefined}
+                >
+                  {letter}
+                </span>
+
+                {/* 3D Mechanical Tumbler */}
+                {isFlipping && (
+                  <span
+                    key={activeFlip.key}
+                    className="bp-flipper"
+                    aria-hidden="true"
+                  >
+                    <span className="bp-flap bp-flap-orig">{letter}</span>
+                    <span className="bp-flap bp-flap-random">{activeFlip.randomChar}</span>
+                  </span>
+                )}
+              </span>
+            );
+          })}
         </h1>
 
         <p

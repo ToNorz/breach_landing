@@ -113,10 +113,119 @@ html,
   animation: bp-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Mechanical Flip Display for Hero Title                            */
+/* ------------------------------------------------------------------ */
+
+.bp-flip-cell {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  perspective: 500px;
+}
+
+.bp-flipper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+  animation: bp-flip-roll 360ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.bp-flap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  color: inherit;
+}
+
+.bp-flap-orig {
+  animation: bp-show-orig 360ms linear both;
+}
+
+.bp-flap-random {
+  animation: bp-show-random 360ms linear both;
+}
+
+@keyframes bp-flip-roll {
+  0% {
+    transform: perspective(500px) rotateX(0deg);
+    filter: brightness(1);
+  }
+  22% {
+    transform: perspective(500px) rotateX(-90deg);
+    filter: brightness(0.65);
+  }
+  22.01% {
+    transform: perspective(500px) rotateX(90deg);
+    filter: brightness(0.65);
+  }
+  44% {
+    transform: perspective(500px) rotateX(0deg);
+    filter: brightness(1);
+  }
+  56% {
+    transform: perspective(500px) rotateX(0deg);
+    filter: brightness(1);
+  }
+  78% {
+    transform: perspective(500px) rotateX(-90deg);
+    filter: brightness(0.65);
+  }
+  78.01% {
+    transform: perspective(500px) rotateX(90deg);
+    filter: brightness(0.65);
+  }
+  100% {
+    transform: perspective(500px) rotateX(0deg);
+    filter: brightness(1);
+  }
+}
+
+@keyframes bp-show-orig {
+  0%, 21.99% {
+    opacity: 1;
+    visibility: visible;
+  }
+  22%, 77.99% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  78%, 100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes bp-show-random {
+  0%, 21.99% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  22%, 77.99% {
+    opacity: 1;
+    visibility: visible;
+  }
+  78%, 100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .bp-scanline,
   .bp-cursor,
-  .bp-rise {
+  .bp-rise,
+  .bp-flipper,
+  .bp-flap-orig,
+  .bp-flap-random {
     animation: none !important;
   }
 }

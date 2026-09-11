@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Terminal, Radio, Menu, X as CloseIcon } from "lucide-react";
+import { Terminal, Menu, X as CloseIcon } from "lucide-react";
 import { NAV_LINKS } from "../data/navigation";
 
 export default function Navbar() {
@@ -26,13 +26,19 @@ export default function Navbar() {
         <a
           href="#home"
           onClick={(e) => scrollTo(e, "#home")}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2.5 group"
           id="nav-logo"
         >
-          <Terminal size={18} style={{ color: "var(--green)" }} />
-          <span className="bp-display text-lg font-bold tracking-tight">
-            BREACH<span style={{ color: "var(--green)" }}>POINT</span>
+          <span className="bp-display text-sm font-extrabold tracking-widest text-[var(--green)]">
+            AXIOS
           </span>
+          <span className="text-xs font-mono text-[var(--border-strong)]">/</span>
+          <div className="flex items-center gap-1.5">
+            <Terminal size={17} style={{ color: "var(--green)" }} />
+            <span className="bp-display text-lg font-bold tracking-tight">
+              BREACH<span style={{ color: "var(--green)" }}>POINT</span>
+            </span>
+          </div>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -48,15 +54,10 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <a
-            href="#event-heads"
-            onClick={(e) => scrollTo(e, "#event-heads")}
-            className="bp-btn-outline bp-mono text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-sm inline-flex items-center gap-2"
-          >
-            <Radio size={13} />
-            Call for Sponsors
-          </a>
+        <div className="hidden md:flex items-center">
+          <span className="bp-mono text-xs uppercase tracking-widest font-semibold px-3 py-1.5 rounded-sm border border-[var(--border-strong)] bg-[var(--green-soft)] text-[var(--green)]">
+            AXIOS &apos;26
+          </span>
         </div>
 
         <button
@@ -87,14 +88,9 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="#event-heads"
-            onClick={(e) => scrollTo(e, "#event-heads")}
-            className="bp-btn-outline bp-mono text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-sm inline-flex items-center gap-2 justify-center mt-1"
-          >
-            <Radio size={13} />
-            Call for Sponsors
-          </a>
+          <div className="bp-mono text-xs uppercase tracking-widest font-semibold px-3 py-2 rounded-sm border border-[var(--border-strong)] bg-[var(--green-soft)] text-[var(--green)] text-center mt-2">
+            AXIOS &apos;26
+          </div>
         </div>
       )}
     </header>
