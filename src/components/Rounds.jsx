@@ -7,10 +7,10 @@ export default function Rounds() {
     <section id="rounds" className="relative px-6 py-28" style={{ background: "var(--bg-alt)" }}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <p className="bp-mono text-xs uppercase tracking-widest mb-4" style={{ color: "var(--text-faint)" }}>
+          <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
             The Format
           </p>
-          <h2 className="bp-display text-3xl md:text-4xl font-semibold">
+          <h2 className="bp-display text-3xl md:text-4xl font-bold">
             Two rounds. One objective. Prove you belong.
           </h2>
         </div>

@@ -18,18 +18,18 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Terminal size={16} style={{ color: "var(--green)" }} />
-              <span className="bp-display text-base font-semibold">
+              <span className="bp-display text-base font-bold">
                 BREACH<span style={{ color: "var(--green)" }}>POINT</span>
               </span>
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--text-faint)" }}>
+            <p className="text-sm leading-relaxed font-normal" style={{ color: "var(--text-faint)" }}>
               A national-level cybersecurity CTF. Break the system, capture the flag.
             </p>
           </div>
 
           {/* Col 2: Platforms */}
           <div>
-            <p className="bp-mono text-xs uppercase tracking-widest mb-4" style={{ color: "var(--text-faint)" }}>
+            <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
               Platforms
             </p>
             <ul className="space-y-3 text-sm" style={{ color: "var(--text-dim)" }}>
@@ -40,7 +40,7 @@ export default function Footer() {
                     <span className="flex items-center gap-2">
                       <Icon size={13} /> {plat.name}
                     </span>
-                    <span className="bp-mono text-[10px]" style={{ color: "var(--text-faint)" }}>
+                    <span className="bp-mono text-[10px] font-medium" style={{ color: "var(--text-faint)" }}>
                       {plat.status}
                     </span>
                   </li>
@@ -51,13 +51,13 @@ export default function Footer() {
 
           {/* Col 3: Contact */}
           <div>
-            <p className="bp-mono text-xs uppercase tracking-widest mb-4" style={{ color: "var(--text-faint)" }}>
+            <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
               Contact
             </p>
             <ul className="space-y-3 text-sm" style={{ color: "var(--text-dim)" }}>
               {CONTACT_EMAILS.map((email) => (
                 <li key={email}>
-                  <a href={`mailto:${email}`} className="bp-nav-link">
+                  <a href={`mailto:${email}`} className="bp-nav-link bp-mono text-sm font-normal">
                     {email}
                   </a>
                 </li>
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Col 4: Follow */}
           <div>
-            <p className="bp-mono text-xs uppercase tracking-widest mb-4" style={{ color: "var(--text-faint)" }}>
+            <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
               Follow
             </p>
             <div className="flex items-center gap-3">

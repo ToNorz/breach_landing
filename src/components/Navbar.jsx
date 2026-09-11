@@ -30,7 +30,7 @@ export default function Navbar() {
           id="nav-logo"
         >
           <Terminal size={18} style={{ color: "var(--green)" }} />
-          <span className="bp-display text-lg font-semibold tracking-tight">
+          <span className="bp-display text-lg font-bold tracking-tight">
             BREACH<span style={{ color: "var(--green)" }}>POINT</span>
           </span>
         </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={(e) => scrollTo(e, l.href)}
-              className="bp-nav-link bp-mono text-xs uppercase tracking-wider"
+              className="bp-nav-link bp-mono text-xs uppercase tracking-wider font-medium"
             >
               {l.label}
             </a>
@@ -52,7 +52,7 @@ export default function Navbar() {
           <a
             href="#event-heads"
             onClick={(e) => scrollTo(e, "#event-heads")}
-            className="bp-btn-outline bp-mono text-xs uppercase tracking-wider px-4 py-2 rounded-sm inline-flex items-center gap-2"
+            className="bp-btn-outline bp-mono text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-sm inline-flex items-center gap-2"
           >
             <Radio size={13} />
             Call for Sponsors
@@ -81,7 +81,7 @@ export default function Navbar() {
               key={l.href}
               href={l.href}
               onClick={(e) => scrollTo(e, l.href)}
-              className="bp-mono text-xs uppercase tracking-wider pt-4"
+              className="bp-mono text-xs uppercase tracking-wider font-medium pt-4"
               style={{ color: "var(--text-dim)" }}
             >
               {l.label}
@@ -90,7 +90,7 @@ export default function Navbar() {
           <a
             href="#event-heads"
             onClick={(e) => scrollTo(e, "#event-heads")}
-            className="bp-btn-outline bp-mono text-xs uppercase tracking-wider px-4 py-2 rounded-sm inline-flex items-center gap-2 justify-center mt-1"
+            className="bp-btn-outline bp-mono text-xs uppercase tracking-wider font-semibold px-4 py-2 rounded-sm inline-flex items-center gap-2 justify-center mt-1"
           >
             <Radio size={13} />
             Call for Sponsors

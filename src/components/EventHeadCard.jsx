@@ -15,7 +15,7 @@ export default function EventHeadCard({ name, role, email }) {
       <span className="bp-corner border-b border-r" style={{ bottom: -1, right: -1 }} />
 
       <div
-        className="w-20 h-20 rounded-full flex items-center justify-center bp-display text-xl font-semibold mb-5"
+        className="w-20 h-20 rounded-full flex items-center justify-center bp-display text-xl font-bold mb-5"
         style={{
           border: "1px solid var(--border-strong)",
           background: "var(--green-soft)",
@@ -24,13 +24,13 @@ export default function EventHeadCard({ name, role, email }) {
       >
         {initials}
       </div>
-      <h3 className="bp-display text-lg font-semibold">{name}</h3>
-      <p className="bp-mono text-xs uppercase tracking-widest mt-1.5" style={{ color: "var(--text-faint)" }}>
+      <h3 className="bp-display text-lg font-bold">{name}</h3>
+      <p className="bp-mono text-xs uppercase tracking-widest font-medium mt-1.5" style={{ color: "var(--text-faint)" }}>
         {role}
       </p>
       <a
         href={`mailto:${email}`}
-        className="bp-nav-link bp-mono text-sm mt-4 inline-flex items-center gap-2"
+        className="bp-nav-link bp-mono text-sm font-normal mt-4 inline-flex items-center gap-2"
         style={{ color: "var(--text-dim)" }}
       >
         <Mail size={14} />

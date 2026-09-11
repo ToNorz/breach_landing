@@ -8,10 +8,10 @@ export default function EventHeads() {
     <section id="event-heads" className="relative px-6 py-28" style={{ background: "var(--bg-alt)" }}>
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <p className="bp-mono text-xs uppercase tracking-widest mb-4" style={{ color: "var(--text-faint)" }}>
+          <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
             Contacts
           </p>
-          <h2 className="bp-display text-3xl md:text-4xl font-semibold">The People Behind the Breach</h2>
+          <h2 className="bp-display text-3xl md:text-4xl font-bold">The People Behind the Breach</h2>
         </div>
 
         {/* Event Heads Grid */}
@@ -38,13 +38,13 @@ export default function EventHeads() {
             >
               <Users size={18} style={{ color: "var(--green)" }} />
             </div>
-            <p className="text-base md:text-lg" style={{ color: "var(--text)" }}>
+            <p className="text-base md:text-lg font-normal" style={{ color: "var(--text)" }}>
               {PARTNERSHIP_INFO.message}
             </p>
           </div>
           <a
             href={`mailto:${PARTNERSHIP_INFO.contactEmail}`}
-            className="bp-btn-primary rounded-sm px-6 py-3 inline-flex items-center gap-2 bp-mono text-xs uppercase tracking-wider shrink-0"
+            className="bp-btn-primary rounded-sm px-6 py-3 inline-flex items-center gap-2 bp-mono text-xs uppercase tracking-wider font-semibold shrink-0"
           >
             {PARTNERSHIP_INFO.buttonText}
             <ArrowRight size={14} />

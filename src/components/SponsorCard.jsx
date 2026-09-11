@@ -52,7 +52,7 @@ export default function SponsorCard({
       {/* Sponsor info */}
       <div className="w-full text-center">
         <h3
-          className={`bp-display font-semibold transition-colors duration-200 ${
+          className={`bp-display font-bold transition-colors duration-200 ${
             large ? "text-lg sm:text-xl text-white" : "text-xs sm:text-sm text-slate-200 truncate group-hover:text-white"
           }`}
           title={name}
@@ -60,9 +60,9 @@ export default function SponsorCard({
           {name}
         </h3>
         <p
-          className={`bp-mono uppercase tracking-widest mt-1.5 ${
+          className={`bp-mono uppercase tracking-widest mt-1.5 font-medium ${
             large
-              ? "text-xs text-emerald-400 font-medium inline-block bp-tag px-3 py-1 rounded-xs"
+              ? "text-xs text-emerald-400 inline-block bp-tag px-3 py-1 rounded-xs"
               : "text-[10px] text-slate-500"
           }`}
         >

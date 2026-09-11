@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="relative max-w-5xl mx-auto px-6 pt-28 pb-24 flex flex-col items-center text-center">
         {/* Terminal status badge */}
         <div
-          className="bp-rise bp-mono text-[11px] uppercase inline-flex items-center gap-2 px-3 py-1.5 rounded-sm mb-8"
+          className="bp-rise bp-mono text-[11px] font-medium uppercase inline-flex items-center gap-2 px-3 py-1.5 rounded-sm mb-8"
           style={{
             animationDelay: "0.05s",
             border: "1px solid var(--border-strong)",
@@ -34,9 +34,9 @@ export default function Hero() {
           <span className="bp-cursor">_</span>
         </div>
 
-        {/* Hero Title */}
+        {/* Hero Title - Oxanium 800 */}
         <h1
-          className="bp-rise bp-display font-bold leading-[0.95] tracking-tight"
+          className="bp-rise bp-display font-extrabold leading-[0.95] tracking-tight"
           style={{
             animationDelay: "0.15s",
             fontSize: "clamp(2.75rem, 8vw, 6.5rem)",
@@ -46,27 +46,28 @@ export default function Hero() {
         </h1>
 
         <p
-          className="bp-rise bp-mono mt-6 text-sm md:text-base tracking-wide uppercase"
+          className="bp-rise bp-mono mt-6 text-sm md:text-base tracking-wide uppercase font-medium"
           style={{ animationDelay: "0.25s", color: "var(--text-dim)" }}
         >
           Break the system. Capture the flag. Make your mark.
         </p>
 
+        {/* Body Description - Inter 400 */}
         <p
-          className="bp-rise mt-6 max-w-xl text-base md:text-lg leading-relaxed"
+          className="bp-rise mt-6 max-w-xl text-base md:text-lg leading-relaxed font-normal"
           style={{ animationDelay: "0.35s", color: "var(--text)" }}
         >
           A two-stage cybersecurity challenge where curiosity becomes skill, and skill becomes control.
         </p>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - IBM Plex Mono 600 */}
         <div
           className="bp-rise flex flex-col sm:flex-row gap-4 mt-10"
           style={{ animationDelay: "0.45s" }}
         >
           <button
             onClick={() => scrollTo("#event-heads")}
-            className="bp-btn-primary rounded-sm px-7 py-3.5 inline-flex items-center justify-center gap-2 bp-mono text-sm uppercase tracking-wider cursor-pointer"
+            className="bp-btn-primary rounded-sm px-7 py-3.5 inline-flex items-center justify-center gap-2 bp-mono text-sm uppercase tracking-wider font-semibold cursor-pointer"
             id="hero-register-btn"
           >
             Register Now
@@ -74,16 +75,16 @@ export default function Hero() {
           </button>
           <button
             onClick={() => scrollTo("#rounds")}
-            className="bp-btn-outline rounded-sm px-7 py-3.5 inline-flex items-center justify-center gap-2 bp-mono text-sm uppercase tracking-wider cursor-pointer"
+            className="bp-btn-outline rounded-sm px-7 py-3.5 inline-flex items-center justify-center gap-2 bp-mono text-sm uppercase tracking-wider font-semibold cursor-pointer"
             id="hero-explore-btn"
           >
             Explore Rounds
           </button>
         </div>
 
-        {/* Cyber keywords bar */}
+        {/* Cyber keywords bar - IBM Plex Mono 500 */}
         <div
-          className="bp-rise mt-16 flex items-center gap-6 bp-mono text-[11px] uppercase"
+          className="bp-rise mt-16 flex items-center gap-6 bp-mono text-[11px] uppercase font-medium"
           style={{ animationDelay: "0.55s", color: "var(--text-faint)" }}
         >
           <span>Recon</span>

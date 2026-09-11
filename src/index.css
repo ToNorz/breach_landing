@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Oxanium:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -30,11 +30,11 @@
 }
 
 .bp-display {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Oxanium', sans-serif;
 }
 
 .bp-mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 html,

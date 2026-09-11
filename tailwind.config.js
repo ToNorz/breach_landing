@@ -19,8 +19,8 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        display: ["Space Grotesk", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        display: ["Oxanium", "sans-serif"],
+        mono: ["'IBM Plex Mono'", "monospace"],
       },
     },
   },

@@ -139,9 +139,9 @@ The design system uses CSS variables defined in [`src/index.css`](src/index.css)
 ```
 
 Typography uses:
-- **Display**: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) (`.bp-display`)
-- **Monospace**: [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) (`.bp-mono`)
-- **Body**: [Inter](https://fonts.google.com/specimen/Inter)
+- **Headings & Brand**: [Oxanium](https://fonts.google.com/specimen/Oxanium) 700/800 (`.bp-display`, `font-display`) for `BREACHPOINT`, section titles, and card headers.
+- **Body & Descriptions**: [Inter](https://fonts.google.com/specimen/Inter) 400/500 (`font-sans`) for descriptions, narrative paragraphs, and body copy.
+- **Time & Technical Labels**: [IBM Plex Mono](https://fonts.google.com/specimen/IBM+Plex+Mono) 400/500/600 (`.bp-mono`, `font-mono`) for terminal badges, timestamps, tags, navigation, buttons, and metadata.
 
 ---
 
@@ -151,7 +151,7 @@ Typography uses:
 - **Bundler & Dev Server**: [Vite](https://vite.dev/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) + Custom CSS animations
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Typography**: Google Fonts (Space Grotesk, JetBrains Mono, Inter)
+- **Typography**: Google Fonts (Oxanium, Inter, IBM Plex Mono)
 
 ---
 

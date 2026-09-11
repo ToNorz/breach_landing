@@ -8,11 +8,11 @@ export default function Sponsors() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="bp-mono text-xs uppercase tracking-widest mb-4" style={{ color: "var(--text-faint)" }}>
+          <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
             Backed By
           </p>
-          <h2 className="bp-display text-3xl md:text-4xl font-semibold mb-3">Powering the Breach</h2>
-          <p className="bp-mono text-xs sm:text-sm max-w-xl mx-auto" style={{ color: "var(--text-dim)" }}>
+          <h2 className="bp-display text-3xl md:text-4xl font-bold mb-3">Powering the Breach</h2>
+          <p className="bp-mono text-xs sm:text-sm font-medium max-w-xl mx-auto" style={{ color: "var(--text-dim)" }}>
             Supported by industry leaders and past partners championing cybersecurity innovation.
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function Sponsors() {
         <div>
           <div className="flex items-center justify-center gap-3 mb-8">
             <span className="h-px w-10 sm:w-16" style={{ background: "var(--border)" }} />
-            <h3 className="bp-mono text-xs uppercase tracking-widest font-medium" style={{ color: "var(--text-dim)" }}>
+            <h3 className="bp-mono text-xs uppercase tracking-widest font-semibold" style={{ color: "var(--text-dim)" }}>
               Previous Sponsors
             </h3>
             <span className="h-px w-10 sm:w-16" style={{ background: "var(--border)" }} />
