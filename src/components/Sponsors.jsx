@@ -11,7 +11,7 @@ export default function Sponsors() {
           <p className="bp-mono text-xs uppercase tracking-widest font-semibold mb-4" style={{ color: "var(--text-faint)" }}>
             Backed By
           </p>
-          <h2 className="bp-display text-3xl md:text-4xl font-bold mb-3">Powering the Breach</h2>
+          <h2 className="bp-display text-3xl md:text-4xl font-bold mb-3">Powering AXIOS</h2>
           <p className="bp-mono text-xs sm:text-sm font-medium max-w-xl mx-auto" style={{ color: "var(--text-dim)" }}>
             Supported by industry leaders and past partners championing cybersecurity innovation.
           </p>
