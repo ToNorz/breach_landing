@@ -23,7 +23,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed font-normal" style={{ color: "var(--text-faint)" }}>
-              A national-level cybersecurity CTF. Break the system, capture the flag.
+              An inter-college cybersecurity CTF. Break the system, capture the flag.
             </p>
           </div>
 

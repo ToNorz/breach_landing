@@ -6,15 +6,15 @@ const TITLE_LETTERS = "BREACHPOINT".split("");
 const RANDOM_CHARS = ["0", "1", "4", "7", "A", "X", "#", "8", "9", "Z", "_"];
 
 const DATE_QUOTES = [
-  "Synchronize clocks. Lock your timeline. The breach begins.",
-  "Calibrate your rigs. Save the date. Zero hour approaches.",
-  "Prime your terminal. Mark your timeline. The grid activates.",
+  "Synchronize clocks. Lock your timeline.",
+  "Calibrate your rigs. Save the date.",
+  "Prime your terminal. The grid activates.",
 ];
 
 const PRIZE_QUOTES = [
-  "Bounties for the bold. High stakes in the arena.",
+  "Bounties for the bold. High stakes.",
   "Crack the challenges. Claim the spoils.",
-  "Elite skills earn real bounties. The prize awaits.",
+  "Elite skills earn real bounties.",
 ];
 
 export default function Hero() {
@@ -255,13 +255,13 @@ export default function Hero() {
 
         {/* Event Dates, Prize Pool & Quotes */}
         <div
-          className="bp-rise mt-12 flex flex-col items-center gap-6 text-center w-full"
+          className="bp-rise mt-10 sm:mt-12 flex flex-col items-center gap-5 sm:gap-6 text-center w-full px-2"
           style={{ animationDelay: "0.55s" }}
         >
           {/* Section 1: Dates & Quote */}
-          <div className="flex flex-col items-center gap-2.5 w-full">
+          <div className="flex flex-col items-center gap-2 w-full">
             <div
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-sm transition-all duration-300 hover:border-[var(--green)]"
+              className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-sm transition-all duration-300 hover:border-[var(--green)] max-w-full"
               style={{
                 border: "1px solid var(--border-strong)",
                 background: "rgba(10, 15, 20, 0.75)",
@@ -269,19 +269,19 @@ export default function Hero() {
                 boxShadow: "0 0 20px -5px rgba(52, 229, 164, 0.12)",
               }}
             >
-              <Calendar size={15} style={{ color: "var(--green)" }} />
+              <Calendar size={14} className="shrink-0 sm:w-[15px] sm:h-[15px]" style={{ color: "var(--green)" }} />
               <span
-                className="bp-mono text-xs md:text-sm uppercase tracking-widest font-semibold"
+                className="bp-mono text-[11px] sm:text-xs md:text-sm uppercase tracking-wider sm:tracking-widest font-semibold"
                 style={{ color: "var(--green)" }}
               >
                 SEPTEMBER 25, 26
               </span>
             </div>
 
-            {/* Cyber Quote for Dates - Guaranteed Single Line with Fixed Height */}
-            <div className="h-6 flex items-center justify-center overflow-hidden w-full max-w-xl mx-auto px-4">
+            {/* Cyber Quote for Dates - Mobile Responsive Single Line with Fixed Height */}
+            <div className="h-6 flex items-center justify-center overflow-hidden w-full max-w-lg mx-auto px-2">
               <p
-                className={`bp-mono text-[11px] sm:text-xs md:text-sm tracking-wide uppercase font-medium whitespace-nowrap transition-opacity duration-300 ${
+                className={`bp-mono text-[10px] sm:text-xs md:text-sm tracking-wide uppercase font-medium whitespace-nowrap transition-opacity duration-300 ${
                   quoteFade ? "opacity-100" : "opacity-0"
                 }`}
                 style={{ color: "var(--text-dim)" }}
@@ -292,9 +292,9 @@ export default function Hero() {
           </div>
 
           {/* Section 2: Prize Pool with Fast Counter Animation & Quote */}
-          <div className="flex flex-col items-center gap-2.5 w-full">
+          <div className="flex flex-col items-center gap-2 w-full">
             <div
-              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-sm transition-all duration-300 hover:border-[var(--green)]"
+              className="inline-flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-sm transition-all duration-300 hover:border-[var(--green)] max-w-full"
               style={{
                 border: "1px solid var(--border-strong)",
                 background: "rgba(10, 15, 20, 0.8)",
@@ -303,24 +303,24 @@ export default function Hero() {
               }}
             >
               <div
-                className="w-7 h-7 rounded-sm flex items-center justify-center shrink-0"
+                className="w-6 h-6 sm:w-7 sm:h-7 rounded-sm flex items-center justify-center shrink-0"
                 style={{
                   background: "var(--green-soft)",
                   border: "1px solid var(--border-strong)",
                 }}
               >
-                <Trophy size={15} style={{ color: "var(--green)" }} />
+                <Trophy size={13} className="sm:w-[15px] sm:h-[15px]" style={{ color: "var(--green)" }} />
               </div>
 
-              <div className="flex items-baseline gap-2">
+              <div className="flex items-baseline gap-1.5 sm:gap-2">
                 <span
-                  className="bp-mono text-[11px] md:text-xs uppercase tracking-widest font-semibold"
+                  className="bp-mono text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold"
                   style={{ color: "var(--text-faint)" }}
                 >
                   PRIZE POOL
                 </span>
                 <span
-                  className="bp-display text-xl md:text-2xl font-extrabold tracking-tight tabular-nums"
+                  className="bp-display text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight tabular-nums"
                   style={{
                     color: "var(--green)",
                     textShadow: "0 0 15px rgba(52, 229, 164, 0.35)",
@@ -331,10 +331,10 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Cyber Quote for Prize Pool - Guaranteed Single Line with Fixed Height */}
-            <div className="h-6 flex items-center justify-center overflow-hidden w-full max-w-xl mx-auto px-4">
+            {/* Cyber Quote for Prize Pool - Mobile Responsive Single Line with Fixed Height */}
+            <div className="h-6 flex items-center justify-center overflow-hidden w-full max-w-lg mx-auto px-2">
               <p
-                className={`bp-mono text-[11px] sm:text-xs md:text-sm tracking-wide uppercase font-medium whitespace-nowrap transition-opacity duration-300 ${
+                className={`bp-mono text-[10px] sm:text-xs md:text-sm tracking-wide uppercase font-medium whitespace-nowrap transition-opacity duration-300 ${
                   prizeQuoteFade ? "opacity-100" : "opacity-0"
                 }`}
                 style={{ color: "var(--text-dim)" }}
