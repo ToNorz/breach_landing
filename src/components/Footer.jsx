@@ -93,14 +93,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 bp-mono text-[11px] uppercase tracking-wider"
+          className="pt-8 flex items-center justify-center text-center bp-mono text-[11px] uppercase tracking-wider"
           style={{ borderTop: "1px solid var(--border)", color: "var(--text-faint)" }}
         >
           <span>&copy; {new Date().getFullYear()} BreachPoint. All systems monitored.</span>
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--green)" }} />
-            End of transmission
-          </span>
         </div>
       </div>
     </footer>

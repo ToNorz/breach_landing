@@ -1,5 +1,5 @@
 import { Trophy, Terminal, Zap } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "../components/SocialIcons";
+import { InstagramIcon, LinkedinIcon } from "../components/SocialIcons";
 
 export const PLATFORMS_DATA = [
   { name: "CTFtime", icon: Trophy, status: "soon", href: "#" },
@@ -13,7 +13,14 @@ export const CONTACT_EMAILS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: "GitHub", icon: GithubIcon, href: "https://github.com" },
-  { name: "LinkedIn", icon: LinkedinIcon, href: "https://linkedin.com" },
-  { name: "Twitter", icon: TwitterIcon, href: "https://twitter.com" },
+  {
+    name: "Instagram",
+    icon: InstagramIcon,
+    href: "https://www.instagram.com/axios.psgtech?stkn=aXQwN21zMm14c3Y4",
+  },
+  {
+    name: "LinkedIn",
+    icon: LinkedinIcon,
+    href: "https://www.linkedin.com/in/applied-mathematics-and-computational-sciences-psg-college-of-technology-a6aa58388?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  },
 ];

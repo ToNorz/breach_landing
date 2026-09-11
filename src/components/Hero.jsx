@@ -1,13 +1,112 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar, Trophy } from "lucide-react";
 import AxiosLogo from "./AxiosLogo";
 
 const TITLE_LETTERS = "BREACHPOINT".split("");
 const RANDOM_CHARS = ["0", "1", "4", "7", "A", "X", "#", "8", "9", "Z", "_"];
 
+const DATE_QUOTES = [
+  "Synchronize clocks. Lock your timeline. The breach begins.",
+  "Calibrate your rigs. Save the date. Zero hour approaches.",
+  "Prime your terminal. Mark your timeline. The grid activates.",
+];
+
+const PRIZE_QUOTES = [
+  "Bounties for the bold. High stakes in the arena.",
+  "Crack the challenges. Claim the spoils.",
+  "Elite skills earn real bounties. The prize awaits.",
+];
+
 export default function Hero() {
   const [activeFlip, setActiveFlip] = useState(null);
   const timerRef = useRef(null);
+  const [quoteIndex, setQuoteIndex] = useState(0);
+  const [quoteFade, setQuoteFade] = useState(true);
+
+  // Prize counter animation state
+  const [prizeCount, setPrizeCount] = useState(0);
+  const [prizeQuoteIndex, setPrizeQuoteIndex] = useState(0);
+  const [prizeQuoteFade, setPrizeQuoteFade] = useState(true);
+
+  // Fast counter animation: counts up to 25,000, holds for 2.5s, then loops
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPrizeCount(25000);
+      return;
+    }
+
+    let rafId;
+    let timeoutId;
+    let isCancelled = false;
+
+    const runCounterCycle = () => {
+      const startTime = performance.now();
+      const duration = 850; // fast 850ms count up
+      const target = 25000;
+
+      const tick = (now) => {
+        if (isCancelled) return;
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Fast ease-out curve
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.round(easeOut * target);
+
+        setPrizeCount(currentVal);
+
+        if (progress < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          // Snap to exact 25,000 and hold for 2.5 seconds
+          setPrizeCount(25000);
+          timeoutId = setTimeout(() => {
+            if (isCancelled) return;
+            runCounterCycle();
+          }, 2500);
+        }
+      };
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    runCounterCycle();
+
+    return () => {
+      isCancelled = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
+
+  // Prize quotes rotation
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const interval = setInterval(() => {
+      setPrizeQuoteFade(false);
+      setTimeout(() => {
+        setPrizeQuoteIndex((prev) => (prev + 1) % PRIZE_QUOTES.length);
+        setPrizeQuoteFade(true);
+      }, 300);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+    const interval = setInterval(() => {
+      setQuoteFade(false);
+      setTimeout(() => {
+        setQuoteIndex((prev) => (prev + 1) % DATE_QUOTES.length);
+        setQuoteFade(true);
+      }, 300);
+    }, 4200);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     // Respect prefers-reduced-motion
@@ -154,18 +253,96 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Cyber keywords bar - IBM Plex Mono 500 */}
+        {/* Event Dates, Prize Pool & Quotes */}
         <div
-          className="bp-rise mt-16 flex items-center gap-6 bp-mono text-[11px] uppercase font-medium"
-          style={{ animationDelay: "0.55s", color: "var(--text-faint)" }}
+          className="bp-rise mt-12 flex flex-col items-center gap-6 text-center w-full"
+          style={{ animationDelay: "0.55s" }}
         >
-          <span>Recon</span>
-          <span style={{ color: "var(--border-strong)" }}>/</span>
-          <span>Exploit</span>
-          <span style={{ color: "var(--border-strong)" }}>/</span>
-          <span>Defend</span>
-          <span style={{ color: "var(--border-strong)" }}>/</span>
-          <span>Capture</span>
+          {/* Section 1: Dates & Quote */}
+          <div className="flex flex-col items-center gap-2.5 w-full">
+            <div
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-sm transition-all duration-300 hover:border-[var(--green)]"
+              style={{
+                border: "1px solid var(--border-strong)",
+                background: "rgba(10, 15, 20, 0.75)",
+                backdropFilter: "blur(8px)",
+                boxShadow: "0 0 20px -5px rgba(52, 229, 164, 0.12)",
+              }}
+            >
+              <Calendar size={15} style={{ color: "var(--green)" }} />
+              <span
+                className="bp-mono text-xs md:text-sm uppercase tracking-widest font-semibold"
+                style={{ color: "var(--green)" }}
+              >
+                SEPTEMBER 25, 26
+              </span>
+            </div>
+
+            {/* Cyber Quote for Dates - Guaranteed Single Line with Fixed Height */}
+            <div className="h-6 flex items-center justify-center overflow-hidden w-full max-w-xl mx-auto px-4">
+              <p
+                className={`bp-mono text-[11px] sm:text-xs md:text-sm tracking-wide uppercase font-medium whitespace-nowrap transition-opacity duration-300 ${
+                  quoteFade ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ color: "var(--text-dim)" }}
+              >
+                &apos;{DATE_QUOTES[quoteIndex]}&apos;
+              </p>
+            </div>
+          </div>
+
+          {/* Section 2: Prize Pool with Fast Counter Animation & Quote */}
+          <div className="flex flex-col items-center gap-2.5 w-full">
+            <div
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-sm transition-all duration-300 hover:border-[var(--green)]"
+              style={{
+                border: "1px solid var(--border-strong)",
+                background: "rgba(10, 15, 20, 0.8)",
+                backdropFilter: "blur(10px)",
+                boxShadow: "0 0 25px -5px rgba(52, 229, 164, 0.16)",
+              }}
+            >
+              <div
+                className="w-7 h-7 rounded-sm flex items-center justify-center shrink-0"
+                style={{
+                  background: "var(--green-soft)",
+                  border: "1px solid var(--border-strong)",
+                }}
+              >
+                <Trophy size={15} style={{ color: "var(--green)" }} />
+              </div>
+
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="bp-mono text-[11px] md:text-xs uppercase tracking-widest font-semibold"
+                  style={{ color: "var(--text-faint)" }}
+                >
+                  PRIZE POOL
+                </span>
+                <span
+                  className="bp-display text-xl md:text-2xl font-extrabold tracking-tight tabular-nums"
+                  style={{
+                    color: "var(--green)",
+                    textShadow: "0 0 15px rgba(52, 229, 164, 0.35)",
+                  }}
+                >
+                  ₹{prizeCount.toLocaleString()}
+                </span>
+              </div>
+            </div>
+
+            {/* Cyber Quote for Prize Pool - Guaranteed Single Line with Fixed Height */}
+            <div className="h-6 flex items-center justify-center overflow-hidden w-full max-w-xl mx-auto px-4">
+              <p
+                className={`bp-mono text-[11px] sm:text-xs md:text-sm tracking-wide uppercase font-medium whitespace-nowrap transition-opacity duration-300 ${
+                  prizeQuoteFade ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ color: "var(--text-dim)" }}
+              >
+                &apos;{PRIZE_QUOTES[prizeQuoteIndex]}&apos;
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
