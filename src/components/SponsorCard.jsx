@@ -5,38 +5,66 @@ export default function SponsorCard({
   name = "Sponsor Name",
   tier,
   size = "sm",
+  logo,
   icon: Icon = Shield,
 }) {
   const large = size === "lg";
-  const displayTier = tier || (large ? "Title Sponsor" : "Partner");
+  const displayTier = tier || (large ? "Title Sponsor" : "Previous Sponsor");
 
   return (
     <div
-      className={`bp-panel rounded-sm flex flex-col items-center justify-center gap-3 ${
-        large ? "py-14" : "py-10"
+      className={`group bp-panel rounded-sm flex flex-col items-center justify-between text-center transition-all duration-300 relative overflow-hidden ${
+        large ? "p-6 sm:p-8" : "p-4 sm:p-5"
       }`}
     >
+      {/* Cyberpunk corner accents */}
+      <span className="bp-corner border-t border-l" style={{ top: -1, left: -1 }} />
+      <span className="bp-corner border-b border-r" style={{ bottom: -1, right: -1 }} />
+
+      {/* Logo container without harsh white backgrounds */}
       <div
-        className={`rounded-sm flex items-center justify-center ${
-          large ? "w-16 h-16" : "w-12 h-12"
+        className={`w-full flex items-center justify-center rounded-sm bg-white/[0.02] border border-white/[0.06] transition-all duration-300 group-hover:bg-white/[0.06] group-hover:border-[var(--green)]/30 ${
+          large ? "h-36 sm:h-40 p-6 mb-5" : "h-24 sm:h-28 p-3.5 mb-3"
         }`}
-        style={{
-          border: "1px solid var(--border-strong)",
-          background: "var(--green-soft)",
-        }}
       >
-        <Icon size={large ? 26 : 20} style={{ color: "var(--text-faint)" }} />
+        {logo ? (
+          <img
+            src={logo}
+            alt={name}
+            className="max-h-full max-w-[85%] object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div
+            className={`rounded-sm flex items-center justify-center ${
+              large ? "w-16 h-16" : "w-12 h-12"
+            }`}
+            style={{
+              border: "1px solid var(--border-strong)",
+              background: "var(--green-soft)",
+            }}
+          >
+            <Icon size={large ? 28 : 20} style={{ color: "var(--text-faint)" }} />
+          </div>
+        )}
       </div>
-      <div className="text-center">
-        <p
-          className={`bp-display font-semibold ${large ? "text-base" : "text-sm"}`}
-          style={{ color: "var(--text-dim)" }}
+
+      {/* Sponsor info */}
+      <div className="w-full text-center">
+        <h3
+          className={`bp-display font-semibold transition-colors duration-200 ${
+            large ? "text-lg sm:text-xl text-white" : "text-xs sm:text-sm text-slate-200 truncate group-hover:text-white"
+          }`}
+          title={name}
         >
           {name}
-        </p>
+        </h3>
         <p
-          className="bp-mono text-[10px] uppercase tracking-widest mt-1"
-          style={{ color: "var(--text-faint)" }}
+          className={`bp-mono uppercase tracking-widest mt-1.5 ${
+            large
+              ? "text-xs text-emerald-400 font-medium inline-block bp-tag px-3 py-1 rounded-xs"
+              : "text-[10px] text-slate-500"
+          }`}
         >
           {displayTier}
         </p>
