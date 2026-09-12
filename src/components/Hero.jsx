@@ -149,7 +149,7 @@ export default function Hero() {
         <div className="bp-scanline" />
       </div>
 
-      <div className="relative max-w-5xl mx-auto px-6 pt-28 pb-24 flex flex-col items-center text-center">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-28 pb-24 flex flex-col items-center text-center">
         {/* Recreated AXIOS '26 Emblem & Wordmark (HTML/SVG, date omitted) */}
         <div
           className="bp-rise max-w-[135px] sm:max-w-[165px] md:max-w-[195px] w-full mb-6 mx-auto transition-transform duration-300 hover:scale-105"
@@ -160,10 +160,10 @@ export default function Hero() {
 
         {/* Hero Title - Oxanium 800 with mechanical precision flip animation */}
         <h1
-          className="bp-rise bp-display font-extrabold leading-[0.95] tracking-tight"
+          className="bp-rise bp-display font-extrabold leading-[0.95] tracking-tight whitespace-nowrap"
           style={{
             animationDelay: "0.15s",
-            fontSize: "clamp(2.75rem, 8vw, 6.5rem)",
+            fontSize: "clamp(1.75rem, 11vw, 6.5rem)",
           }}
           aria-label="BREACHPOINT"
         >
