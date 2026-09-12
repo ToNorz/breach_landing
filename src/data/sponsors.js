@@ -24,6 +24,7 @@ export const SPONSORS_DATA = {
       tier: "Title Co-Sponsor",
       size: "lg",
       logo: klaLogo,
+      masked: true,
     },
   ],
   previousSponsors: [

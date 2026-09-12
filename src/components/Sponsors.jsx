@@ -34,6 +34,7 @@ export default function Sponsors() {
                 tier={sponsor.tier}
                 size={sponsor.size}
                 logo={sponsor.logo}
+                masked={sponsor.masked}
               />
             ))}
           </div>
@@ -56,6 +57,7 @@ export default function Sponsors() {
                 tier={sponsor.tier}
                 size={sponsor.size}
                 logo={sponsor.logo}
+                masked={sponsor.masked}
               />
             ))}
           </div>
