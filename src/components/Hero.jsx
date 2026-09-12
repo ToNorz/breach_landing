@@ -20,10 +20,10 @@ export default function Hero() {
   const [prizeQuoteIndex, setPrizeQuoteIndex] = useState(0);
   const [prizeQuoteFade, setPrizeQuoteFade] = useState(true);
 
-  // Fast counter animation: counts up to 25,000, holds for 2.5s, then loops
+  // Fast counter animation: counts up to 17,500, holds for 2.5s, then loops
   useEffect(() => {
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setPrizeCount(25000);
+      setPrizeCount(17500);
       return;
     }
 
@@ -34,7 +34,7 @@ export default function Hero() {
     const runCounterCycle = () => {
       const startTime = performance.now();
       const duration = 850; // fast 850ms count up
-      const target = 25000;
+      const target = 17500;
 
       const tick = (now) => {
         if (isCancelled) return;
@@ -50,8 +50,8 @@ export default function Hero() {
         if (progress < 1) {
           rafId = requestAnimationFrame(tick);
         } else {
-          // Snap to exact 25,000 and hold for 2.5 seconds
-          setPrizeCount(25000);
+          // Snap to exact 17,500 and hold for 2.5 seconds
+          setPrizeCount(17500);
           timeoutId = setTimeout(() => {
             if (isCancelled) return;
             runCounterCycle();
